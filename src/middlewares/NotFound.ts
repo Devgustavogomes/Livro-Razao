@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
-import { httpErrors } from "@/config/constants/HttpErrors";
+import { httpStatus } from "@/config/constants/HttpStatus";
 
 export function notFound(_: Request, res: Response) {
-  res.status(httpErrors.NotFound).json({ error: "Page not found" });
+  return res.status(httpStatus.NotFound).json({ error: "Page not found" });
 }

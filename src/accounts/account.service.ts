@@ -1,16 +1,31 @@
-import type { AccountEntryDto } from "./dto/accountEntry.dto";
-import { v7 as uuidv7 } from "uuid";
-import { createAccountRepository } from "./account.repository";
+import type { AccountEntryDto } from "./dto/AccountEntry.dto";
+import { v4 as uuidv4 } from "uuid";
+import {
+  createAccountRepository,
+  getAccountByIdRepository,
+} from "./account.repository";
+import { NotFoundError } from "@/Errors/NotFoundError";
+import type { Account } from "./entities/account.entity";
 
-function createAccountService(dto: AccountEntryDto) {
-  const parseData = {
-    id: dto.id ?? uuidv7(),
-    name: dto.name,
+async function createAccountService(dto: AccountEntryDto): Promise<void> {
+  const newAccount = {
+    id: dto.id ?? uuidv4(),
+    name: dto.name ?? null,
     direction: dto.direction,
     balance: 0,
   };
 
-  createAccountRepository(parseData);
+  await createAccountRepository(newAccount);
 }
 
-export { createAccountService };
+async function getAccountByIdService(id: string): Promise<Account> {
+  const account = await getAccountByIdRepository(id);
+
+  if (!account) {
+    throw new NotFoundError("Account doesn't exist");
+  }
+
+  return account;
+}
+
+export { createAccountService, getAccountByIdService };

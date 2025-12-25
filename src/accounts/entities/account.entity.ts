@@ -2,7 +2,7 @@ import type { Direction } from "@/types/direction";
 
 export type Account = {
   id: string;
-  name?: string;
+  name: string | null;
   balance: number;
   direction: Direction;
 };
