@@ -1,8 +1,8 @@
 [
   {
-    "id": "eb665dc8-7190-438e-924d-6ad430d7450a",
+    "id": "0d7722a9-8c4d-46dd-8023-c7ddf08550db",
     "name": "test3",
-    "direction": "debit",
-    "balance": 0
+    "balance": 0,
+    "direction": "debit"
   }
 ]

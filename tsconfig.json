@@ -24,7 +24,7 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "noImplicitReturns": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noUnusedParameters": true
   }
 }

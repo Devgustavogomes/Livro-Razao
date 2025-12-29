@@ -1,7 +1,7 @@
 import type { Direction } from "@/types/direction";
 import { v4 as uuidv4 } from "uuid";
 export class Account {
-  public id: string;
+  private id: string;
   private name: string | null;
   private balance: number;
   private direction: Direction;

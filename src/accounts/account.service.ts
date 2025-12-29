@@ -1,10 +1,11 @@
-import type { AccountEntryDto } from "./dto/AccountEntry.dto";
+import type { AccountEntryDto } from "./dto/account.dto";
 import {
   createAccountRepository,
   getAccountByIdRepository,
 } from "./account.repository";
 import { NotFoundError } from "@/errors/NotFoundError";
 import { Account } from "./entities/account.entity";
+import { AccountData } from "./persistence/account.data";
 
 async function createAccountService(dto: AccountEntryDto): Promise<Account> {
   const newAccount = new Account(dto.id, dto.name, dto.direction);
@@ -12,7 +13,7 @@ async function createAccountService(dto: AccountEntryDto): Promise<Account> {
   return await createAccountRepository(newAccount);
 }
 
-async function getAccountByIdService(id: string): Promise<Account> {
+async function getAccountByIdService(id: string): Promise<AccountData> {
   const account = await getAccountByIdRepository(id);
 
   if (!account) {
