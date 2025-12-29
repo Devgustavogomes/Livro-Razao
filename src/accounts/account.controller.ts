@@ -3,9 +3,9 @@ import { createAccountService, getAccountByIdService } from "./account.service";
 import { httpStatus } from "@/config/constants/HttpStatus";
 
 async function createAccountController(req: Request, res: Response) {
-  await createAccountService(req.body);
+  const account = await createAccountService(req.body);
 
-  return res.status(httpStatus.Created).json({ message: "Account Created" });
+  return res.status(httpStatus.Created).json(account);
 }
 
 async function getAccountByIdController(req: Request, res: Response) {

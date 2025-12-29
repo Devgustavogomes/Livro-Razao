@@ -1,10 +1,12 @@
 import { readDB, writeDB } from "@/database/database";
 import type { Account } from "./entities/account.entity";
 
-const FILE = "account.json";
+const FILE = "accounts.json";
 
-async function createAccountRepository(data: Account): Promise<void> {
+async function createAccountRepository(data: Account): Promise<Account> {
   await writeDB(FILE, data);
+
+  return data;
 }
 
 async function getAccountByIdRepository(

@@ -7,18 +7,18 @@ import { validate } from "@/middlewares/Validate";
 import { CreateAccountSchema } from "./dto/AccountEntry.dto";
 import { GetAccountParamsSchema } from "./dto/GetAccountParams.dto";
 
-const accounts = express.Router();
+const accountsRoute = express.Router();
 
-accounts.post(
+accountsRoute.post(
   "/",
   validate(CreateAccountSchema, "body"),
   createAccountController
 );
 
-accounts.get(
+accountsRoute.get(
   "/:id",
   validate(GetAccountParamsSchema, "params"),
   getAccountByIdController
 );
 
-export { accounts };
+export { accountsRoute };
