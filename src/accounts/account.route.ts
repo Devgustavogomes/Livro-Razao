@@ -4,7 +4,7 @@ import {
   getAccountByIdController,
 } from "./account.controller";
 import { validate } from "@/middlewares/Validate";
-import { CreateAccountSchema } from "./dto/account.dto";
+import { CreateAccountSchema } from "./dto/accountEntry.dto";
 import { IdParamsSchema } from "@/types/IdParams";
 
 const accountsRoute = express.Router();

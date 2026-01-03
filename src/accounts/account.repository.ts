@@ -1,6 +1,6 @@
 import { readDB, writeDB } from "@/database/database";
 import type { Account } from "./entities/account.entity";
-import { AccountData } from "./persistence/account.data";
+import { AccountOutputDto } from "./dto/accountOutput.dto";
 
 const FILE = "accounts.json";
 
@@ -12,8 +12,8 @@ async function createAccountRepository(data: Account): Promise<Account> {
 
 async function getAccountByIdRepository(
   id: string
-): Promise<AccountData | undefined> {
-  const accounts = await readDB<AccountData>(FILE);
+): Promise<AccountOutputDto | undefined> {
+  const accounts = await readDB<AccountOutputDto>(FILE);
 
   const account = accounts.find((acc) => acc.id === id);
 

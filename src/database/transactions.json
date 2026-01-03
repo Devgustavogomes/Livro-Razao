@@ -1,1 +1,30 @@
-[]
+{
+  "id": "3256dc3c-7b18-4a21-95c6-146747cf2971",
+  "name": "test",
+  "entries": [
+    {
+      "direction": "debit",
+      "account_id": "71cde2aa-b9bc-496a-a6f1-34964d05e6fd",
+      "amount": 100,
+      "id": "107c41a4-158a-46b8-987f-edfc6be24a0c"
+    },
+    {
+      "direction": "debit",
+      "account_id": "71cde2aa-b9bc-496a-a6f1-34964d05e6fd",
+      "amount": 100,
+      "id": "6d296ad5-da1a-4917-9bf3-0232d153d90c"
+    },
+    {
+      "direction": "credit",
+      "account_id": "71cde2aa-b9bc-496a-a6f1-34964d05e6ce",
+      "amount": 100,
+      "id": "028cdefc-c443-420e-84c2-c21bc655e40d"
+    },
+    {
+      "direction": "credit",
+      "account_id": "71cde2aa-b9bc-496a-a6f1-34964d05e6ce",
+      "amount": 100,
+      "id": "770c603c-8a54-4a68-a637-6ff899828bc0"
+    }
+  ]
+}

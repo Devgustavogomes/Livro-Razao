@@ -7,7 +7,7 @@ const EntriesSchema = z.object({
   amount: z.number(),
 });
 
-export type Entries = z.infer<typeof EntriesSchema>;
+type Entries = z.infer<typeof EntriesSchema>;
 
 const TransactionSchema = z.object({
   id: z.uuid().optional(),
@@ -15,4 +15,7 @@ const TransactionSchema = z.object({
   entries: z.array(EntriesSchema),
 });
 
-export default TransactionSchema;
+type TransactionEntryDto = z.infer<typeof TransactionSchema>;
+
+export { TransactionSchema };
+export type { Entries, TransactionEntryDto };

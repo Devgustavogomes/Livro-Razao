@@ -1,6 +1,6 @@
 import type { Direction } from "@/types/direction";
 
-export type AccountData = {
+export type AccountOutputDto = {
   id: string;
   name: string | null;
   balance: number;
