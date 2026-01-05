@@ -1,9 +1,15 @@
-import { TransactionEntryDto } from "./transactionEntry.dto";
+import z from "zod";
+import { EntriesSchema, TransactionSchema } from "./transactionEntry.dto";
 
-export type TransactionOutputDto = {
-  id: string;
-  name: string;
-  entries: (Required<TransactionEntryDto["entries"][number]> & {
-    id: string;
-  })[];
-};
+const EntriesOutputSchema = EntriesSchema.extend({
+  id: z.uuid(),
+});
+
+const TransactionOutputSchema = TransactionSchema.extend({
+  id: z.uuid(),
+  name: z.string().min(3).max(256).nullable(),
+  entries: z.array(EntriesOutputSchema),
+}).openapi("TransactionOutput");
+
+export type TransactionOutputDto = z.infer<typeof TransactionOutputSchema>;
+export { EntriesOutputSchema, TransactionOutputSchema };

@@ -17,5 +17,5 @@ const TransactionSchema = z.object({
 
 type TransactionEntryDto = z.infer<typeof TransactionSchema>;
 
-export { TransactionSchema };
+export { TransactionSchema, EntriesSchema };
 export type { Entries, TransactionEntryDto };
