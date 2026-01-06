@@ -1,14 +1,2 @@
-[
-  {
-    "id": "71cde2aa-b9bc-496a-a6f1-34964d05e6fd",
-    "name": "test3",
-    "balance": 3600,
-    "direction": "debit"
-  },
-  {
-    "id": "71cde2aa-b9bc-496a-a6f1-34964d05e6ce",
-    "name": "test3",
-    "balance": -2400,
-    "direction": "debit"
-  }
-]
+[]
+
