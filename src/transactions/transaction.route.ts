@@ -16,7 +16,7 @@ DocumentPath({
   method: "post",
   description: "Create transaction",
   summary: "Route to create and execute a transaction",
-  path: "/transaction",
+  path: "/transactions",
   tags: ["Transaction"],
   request: { body: TransactionSchema },
   responses: {

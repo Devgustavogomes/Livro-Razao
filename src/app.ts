@@ -18,7 +18,7 @@ app.use(logger);
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(Swagger()));
 
 app.use("/accounts", accountsRoute);
-app.use("/transaction", transactionsRoute);
+app.use("/transactions", transactionsRoute);
 
 app.use(notFound);
 app.use(errorHandling);

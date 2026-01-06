@@ -1,4 +1,3 @@
-import { Result } from "./../../node_modules/glob/dist/commonjs/glob.d";
 import { Direction } from "@/types/direction";
 import { Account } from "./entities/account.entity";
 import { AccountEntryDto } from "./dto/accountEntry.dto";
