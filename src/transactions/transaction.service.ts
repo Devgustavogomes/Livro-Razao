@@ -4,11 +4,13 @@ import { Transaction } from "./entities/transaction.entity";
 import {
   changeAccounts,
   createTransactionRepository,
+  findTransactionByIdRepository,
   getAllAccounts,
 } from "./transaction.repository";
 import { Direction } from "@/types/direction";
 import { UnbalancedTransactionError } from "@/errors/UnbalancedTransactionError";
 import { Entry } from "./entities/entry.entity";
+import { TransactionOutputDto } from "./dto/transactionOutput.dto";
 
 async function createTransactionService(
   dto: TransactionEntryDto
@@ -22,6 +24,18 @@ async function createTransactionService(
   await executeEntries(dto.entries, transaction);
 
   return await createTransactionRepository(transaction);
+}
+
+async function findTransactionByIdService(
+  id: string
+): Promise<TransactionOutputDto> {
+  const account = await findTransactionByIdRepository(id);
+
+  if (!account) {
+    throw new NotFoundError("Transaction not found");
+  }
+
+  return account;
 }
 
 async function executeEntries(
@@ -79,4 +93,4 @@ function checkBalance(entries: Entries[]): void {
   }
 }
 
-export { createTransactionService };
+export { createTransactionService, findTransactionByIdService };

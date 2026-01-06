@@ -13,6 +13,16 @@ async function createTransactionRepository(
   return data;
 }
 
+async function findTransactionByIdRepository(
+  id: string
+): Promise<TransactionOutputDto | undefined> {
+  const FILE = "transactions.json";
+
+  const accounts = await readDB<TransactionOutputDto>(FILE);
+
+  return accounts.find((acc) => acc.id === id);
+}
+
 async function getAllAccounts(): Promise<AccountOutputDto[]> {
   const FILE = "accounts.json";
 
@@ -25,4 +35,9 @@ async function changeAccounts(accounts: AccountOutputDto[]): Promise<void> {
   await writeDB(FILE, accounts);
 }
 
-export { getAllAccounts, changeAccounts, createTransactionRepository };
+export {
+  getAllAccounts,
+  changeAccounts,
+  createTransactionRepository,
+  findTransactionByIdRepository,
+};

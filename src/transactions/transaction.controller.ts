@@ -1,5 +1,8 @@
 import { Request, Response } from "express";
-import { createTransactionService } from "./transaction.service";
+import {
+  createTransactionService,
+  findTransactionByIdService,
+} from "./transaction.service";
 import { httpStatus } from "@/config/constants/HttpStatus";
 
 async function createTransactionController(req: Request, res: Response) {
@@ -8,4 +11,10 @@ async function createTransactionController(req: Request, res: Response) {
   return res.status(httpStatus.Created).json(transaction);
 }
 
-export { createTransactionController };
+async function findTransactionByIdController(req: Request, res: Response) {
+  const transaction = await findTransactionByIdService(req.params.id);
+
+  return res.status(httpStatus.OK).json(transaction);
+}
+
+export { createTransactionController, findTransactionByIdController };
