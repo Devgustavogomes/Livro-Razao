@@ -2,7 +2,7 @@
 
 ## Descrição
 O projeto **Livro-Razão** é uma API REST desenvolvida em **Node.js** com **TypeScript** e **Express**, com foco em **arquitetura modular** e **organização de código**.  
-O design é claro, fácil de estender e mantém a lógica de negócio bem estruturada.
+O design é claro, fácil de entender e mantém a lógica de negócio bem estruturada.
 
 ---
 
