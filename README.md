@@ -50,6 +50,10 @@ npm run dev
 npm run start
 ```
 
+### Documentação
+
+acesse: http://localhost:3000/docs
+
 ## Testes
 
 O projeto utiliza **Jest** para testes unitários.
