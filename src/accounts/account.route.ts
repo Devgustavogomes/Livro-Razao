@@ -1,3 +1,4 @@
+import { httpStatus } from "./../config/constants/HttpStatus";
 import express from "express";
 import {
   createAccountController,
@@ -18,7 +19,9 @@ DocumentPath({
   path: "/accounts",
   tags: ["Account"],
   request: { body: CreateAccountSchema },
-  responses: { 201: { desc: "Created", schema: AccountOutputSchema } },
+  responses: {
+    [httpStatus.Created]: { desc: "Created", schema: AccountOutputSchema },
+  },
 });
 
 accountsRoute.post(
@@ -35,8 +38,8 @@ DocumentPath({
   tags: ["Account"],
   request: { params: IdParamsSchema },
   responses: {
-    200: { desc: "Account found", schema: AccountOutputSchema },
-    400: { desc: "Account not found" },
+    [httpStatus.OK]: { desc: "Account found", schema: AccountOutputSchema },
+    [httpStatus.NotFound]: { desc: "Account not found" },
   },
 });
 

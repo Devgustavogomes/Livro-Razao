@@ -4,6 +4,7 @@ import { TransactionSchema } from "./dto/transactionEntry.dto";
 import { createTransactionController } from "./transaction.controller";
 import { DocumentPath } from "@/config/utils/swagger.utils";
 import { TransactionOutputSchema } from "./dto/transactionOutput.dto";
+import { httpStatus } from "@/config/constants/HttpStatus";
 
 const transactionsRoute = express.Router();
 
@@ -15,9 +16,12 @@ DocumentPath({
   tags: ["Transaction"],
   request: { body: TransactionSchema },
   responses: {
-    200: { desc: "Created and executed", schema: TransactionOutputSchema },
-    404: { desc: "Account not found" },
-    400: { desc: "Transaction is not balanced" },
+    [httpStatus.Created]: {
+      desc: "Created and executed",
+      schema: TransactionOutputSchema,
+    },
+    [httpStatus.NotFound]: { desc: "Account not found" },
+    [httpStatus.BadRequest]: { desc: "Transaction is not balanced" },
   },
 });
 
